@@ -5,4 +5,3 @@
 - commands - Linux commands , one liner,
 - kubernetes 
 - I will try to update the repository 
-- Its easy to update the repository using VC

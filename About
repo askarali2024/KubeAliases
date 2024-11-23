@@ -7,3 +7,6 @@ I am enjoying working in Coreweave, as it bring me back to my field of interest 
 
 In Coreweave everything is deployed as Kubernetes from ground to up
 
+Kubernetes being used for everything in CW (short for Coreweave) therefore there is tremendus opportunity to learn K8s while working in CW
+
+My focus will be to learn K8s compnenets specially the Observablity

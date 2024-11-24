@@ -27,13 +27,15 @@ cd <repository-name>
 
 2. Source the aliases:
 ```
-source aliases/<alias-file>.sh
+source aliases/<alias-file>
 ```
+Or source the aliases file in your shell profile file for example .bashrc, .zshrc 
+
 3. Execute scripts as needed:
 ```
 bash scripts/<script-name>.sh
 ```
-Or move the script to executable path in your system
+Or move the script to executable path on your system
 
 
 ## 🤝 Contributions

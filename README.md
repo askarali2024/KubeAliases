@@ -27,10 +27,14 @@ cd <repository-name>
 
 2. Source the aliases:
 ```
-source aliases/<alias-file>
+source aliases/kaliases
 ```
 Or source the aliases file in your shell profile file for example .bashrc, .zshrc 
-
+```
+if [[ -r ~/KubeAliases/aliases/kaliases ]]; then
+        source ~/KubeAliases/aliases/kaliases
+fi
+```
 3. Execute scripts as needed:
 ```
 bash scripts/<script-name>.sh

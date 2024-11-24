@@ -1,4 +1,4 @@
-#  shorthand alias for kubectl
+#  alias for kubectl
 k() {
     local kubecmd="kubectl"
 
@@ -15,3 +15,17 @@ k() {
             ;;
     esac
 }
+
+# alias for kubectl get nodes
+knodes() {
+    local kubecmd="kubectl"
+
+    if has kubecolor; then
+        kubecmd="kubecolor"
+    fi
+
+    command ${kubecmd} get nodes \
+        -o wide \
+        --sort-by=".status.nodeInfo.architecture" "$@"
+}
+

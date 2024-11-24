@@ -4,7 +4,7 @@ Welcome to the **Kubernetes Bash Toolkit** repository! 🎉 This repository is a
 
 ---
 
-## �� Features
+## Features
 
 - **Efficient Bash Scripts**: Automate Kubernetes operations like deployments, resource monitoring, and management.
 - **Handy Aliases**: Predefined shortcuts for frequently used `kubectl` and other Kubernetes-related commands.
@@ -13,42 +13,35 @@ Welcome to the **Kubernetes Bash Toolkit** repository! 🎉 This repository is a
 
 ---
 
-## 📂 Repository Structure
 
-```plaintext
-.
-├── scripts/             # Bash scripts for Kubernetes tasks
-├── aliases/             # Aliases for Kubernetes commands
-├── tools/               # Other helpful utilities
-├── README.md            # Repository documentation
-└── LICENSE              # License information (optional)
+## 🛠️ Getting Started
+```
+git clone https://github.com/<your-username>/<repository-name>.git
 
-🛠️ Getting Started
+cd <repository-name>
+```
 
-git clone https://github.com/askarali2024/askarali.git
-cd askarali
-
-Setup
+## Setup
 
 1. Ensure you have bash and kubectl installed.
 
 2. Source the aliases:
-
+```
 source aliases/<alias-file>.sh
-
+```
 3. Execute scripts as needed:
-
+```
 bash scripts/<script-name>.sh
-
+```
 Or move the script to executable path in your system
 
-🤝 Contributions
+## 🤝 Contributions
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
-🧾 License
+## 🧾 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-🚀 About the Author
+## 🚀 About the Author
 Developed with ❤️ by Your Name.
 

@@ -1,0 +1,17 @@
+#  shorthand alias for kubectl
+k() {
+    local kubecmd="kubectl"
+
+    if has kubecolor; then
+        kubecmd="kubecolor"
+    fi
+
+    case "$1" in
+        get | describe | desc)
+            command ${kubecmd} "$@"
+            ;;
+        *)
+            command ${kubecmd} --plain "$@"
+            ;;
+    esac
+}

@@ -35,13 +35,14 @@ bash scripts/<script-name>.sh
 ```
 Or move the script to executable path in your system
 
+
 ## 🤝 Contributions
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
+
 ## 🧾 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## 🚀 About the Author
-Developed with ❤️ by Your Name.
+
 

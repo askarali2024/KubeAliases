@@ -1,11 +1,15 @@
-#  alias for kubectl
+# KubeAliases - Kubernetes shell aliases and helpers
+# Compatible with bash and zsh. Source this file from .bashrc or .zshrc.
+
+# Check if a command exists (used for optional kubecolor)
+has() { command -v "$1" &>/dev/null; }
+
+# --- kubectl base (prefer kubecolor when available) ---
 k() {
     local kubecmd="kubectl"
-
     if has kubecolor; then
         kubecmd="kubecolor"
     fi
-
     case "$1" in
         get | describe | desc)
             command ${kubecmd} "$@"
@@ -16,16 +20,102 @@ k() {
     esac
 }
 
-# alias for kubectl get nodes
+# --- Context & config ---
+alias kcfg='kubectl config'
+alias kctx='kubectl config current-context'
+alias kuse='kubectl config use-context'
+alias kns='kubectl config set-context --current --namespace'
+
+# --- Get (kubectl get) ---
+alias kg='kubectl get'
+alias kgp='kubectl get pods'
+alias kgpw='kubectl get pods -o wide'
+alias kgpa='kubectl get pods -A'
+alias kgpaw='kubectl get pods -A -o wide'
+alias kgs='kubectl get services'
+alias kgd='kubectl get deployments'
+alias kgrs='kubectl get replicasets'
+alias kgds='kubectl get daemonsets'
+alias kgss='kubectl get statefulsets'
+alias kgj='kubectl get jobs'
+alias kgcj='kubectl get cronjobs'
+alias kgn='kubectl get nodes'
+alias kgnw='kubectl get nodes -o wide'
+alias kgns='kubectl get namespaces'
+alias kgcm='kubectl get configmaps'
+alias kgsec='kubectl get secrets'
+alias kgpv='kubectl get pv'
+alias kgpvc='kubectl get pvc'
+alias kging='kubectl get ingress'
+alias kgnet='kubectl get networkpolicies'
+alias kgall='kubectl get all'
+alias kgallo='kubectl get all -o wide'
+
+# --- Describe ---
+alias kd='kubectl describe'
+alias kdp='kubectl describe pod'
+alias kds='kubectl describe service'
+alias kdd='kubectl describe deployment'
+alias kdn='kubectl describe node'
+alias kdns='kubectl describe namespace'
+
+# --- Nodes (with optional sort) ---
 knodes() {
     local kubecmd="kubectl"
-
     if has kubecolor; then
         kubecmd="kubecolor"
     fi
-
-    command ${kubecmd} get nodes \
-        -o wide \
-        --sort-by=".status.nodeInfo.architecture" "$@"
+    command ${kubecmd} get nodes -o wide --sort-by=".status.nodeInfo.architecture" "$@"
 }
 
+# --- Logs ---
+alias kl='kubectl logs'
+alias klf='kubectl logs -f'
+alias kl1h='kubectl logs --since=1h'
+alias kl1m='kubectl logs --since=1m'
+alias klp='kubectl logs -l'
+
+# --- Exec & attach ---
+alias kx='kubectl exec -it'
+alias ka='kubectl attach -it'
+
+# --- Apply, create, delete ---
+alias kaf='kubectl apply -f'
+alias kdel='kubectl delete'
+alias kdelf='kubectl delete -f'
+alias krun='kubectl run'
+
+# --- Rollout & scale ---
+alias kr='kubectl rollout'
+alias krstatus='kubectl rollout status'
+alias krrestart='kubectl rollout restart'
+alias krhistory='kubectl rollout history'
+alias krundo='kubectl rollout undo'
+alias kscale='kubectl scale'
+
+# --- Port-forward & proxy ---
+alias kpf='kubectl port-forward'
+alias kproxy='kubectl proxy'
+
+# --- Watch (live updates) ---
+alias kw='kubectl get -w'
+alias kwp='kubectl get pods -w'
+alias kwn='kubectl get nodes -w'
+
+# --- Edit & patch ---
+alias ke='kubectl edit'
+alias kpatch='kubectl patch'
+
+# --- Copy & top ---
+alias kcp='kubectl cp'
+alias ktop='kubectl top'
+alias ktopn='kubectl top nodes'
+alias ktopp='kubectl top pods'
+
+# --- Auth & debug ---
+alias kauth='kubectl auth'
+alias kauthc='kubectl auth can-i'
+alias kdebug='kubectl run debug --rm -it --restart=Never --image=busybox -- sh'
+
+# --- Shortcut ---
+alias kga='kubectl get all'
